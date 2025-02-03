@@ -44,6 +44,15 @@ string render_pretty(Node* node, string func(Node*)) {
     return '(' + output + ')';
 }
 
+Node* remove_second(Node* node) {
+    
+    Node* node2 = node->next;
+
+    node->next = node2->next;
+    node2->next = nullptr;
+    return node2;
+}
+
 TEST_CASE("Test can create and render List Nodes") {
     Node* node1 = new Node;
     CHECK(node1->cargo == 0);
@@ -90,4 +99,15 @@ TEST_CASE("Test can display linked nodes with parenthesis") {
     Node* node4 = new Node(4, node3);
     CHECK(render_pretty(node4, &render_list) == "(4, 3, 2, 1)");
     CHECK(render_pretty(node4, &render_list_backward) == "(1, 2, 3, 4)");
+}
+
+TEST_CASE("Test can remove second node in linked list") {
+    Node* node1 = new Node(1);
+    Node* node2 = new Node(2, node1);
+    Node* node3 = new Node(3, node2);
+    
+    Node* node2_extraPointer = remove_second(node3);
+    CHECK(node2_extraPointer->to_string() == node2->to_string());
+    CHECK(node3->next == node1);
+    CHECK(render_pretty(node3, &render_list) == "(3, 1)");
 }
