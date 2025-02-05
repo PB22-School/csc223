@@ -53,7 +53,7 @@ LinkedList::LinkedList() {
     firstNode = nullptr;
 }
 
-string LinkedList::to_string() {
+string LinkedList::to_string() const {
     if (firstNode == nullptr) {
         return "Empty list";
     }
@@ -69,5 +69,17 @@ string LinkedList::to_string() {
         nextNode = nextNode->next;
     }
 
-    
+    return out;
+}
+
+void LinkedList::insert_in_front(int x) {
+    Node* newFirst = new Node(x, firstNode);
+    firstNode = newFirst;
+}
+
+void LinkedList::remove_from_front() {
+    Node* rmNode = firstNode;
+    firstNode = firstNode->next;
+
+    free(rmNode);
 }

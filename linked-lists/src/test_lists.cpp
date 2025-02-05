@@ -122,3 +122,14 @@ TEST_CASE("Test can create empty linked list") {
     list.insert_in_front(9);
     CHECK(list.to_string() == "9 -> 42 -> 5");
 }
+
+TEST_CASE("Test can remove first element from linked list") {
+    LinkedList list;
+    list.insert_in_front(10);
+    list.insert_in_front(5);
+    CHECK(list.to_string() == "5 -> 10");
+    list.remove_from_front();
+    CHECK(list.to_string() == "10");
+    list.remove_from_front();
+    CHECK(list.to_string() == "Empty list");
+}

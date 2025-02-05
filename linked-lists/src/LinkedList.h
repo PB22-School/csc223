@@ -18,6 +18,9 @@ class LinkedList {
 
     public:
 
+    LinkedList();
+
     string to_string() const;
     void insert_in_front(int x);
+    void remove_from_front();
 };
