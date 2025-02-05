@@ -12,3 +12,12 @@ struct Node {
 
     string to_string() const;
 };
+
+class LinkedList {
+    Node* firstNode;
+
+    public:
+
+    string to_string() const;
+    void insert_in_front(int x);
+};

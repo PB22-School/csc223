@@ -46,3 +46,28 @@ string Node::to_string() const {
     return reverse(str);
 
 }
+
+// LinkedList Stuff
+
+LinkedList::LinkedList() {
+    firstNode = nullptr;
+}
+
+string LinkedList::to_string() {
+    if (firstNode == nullptr) {
+        return "Empty list";
+    }
+    
+    string out = "";
+
+    out += firstNode->to_string();
+    Node* nextNode = firstNode->next;
+    
+    while (nextNode) {
+        out += " -> ";
+        out += nextNode->to_string();
+        nextNode = nextNode->next;
+    }
+
+    
+}
