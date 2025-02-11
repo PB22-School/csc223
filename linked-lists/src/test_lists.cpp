@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "LinkedList.h"
+#include "LinkedListVariants.h"
 using namespace std;
 
 string render_list(Node* node) {
@@ -132,4 +133,22 @@ TEST_CASE("Test can remove first element from linked list") {
     CHECK(list.to_string() == "10");
     list.remove_from_front();
     CHECK(list.to_string() == "Empty list");
+}
+
+TEST_CASE("Test Ordered Linked Lists") {
+    OrderedList orderedList;
+    orderedList.insert(10);
+    orderedList.insert(14);
+    orderedList.insert(5);
+    orderedList.insert(2);
+    orderedList.insert(21);
+    orderedList.insert(2000);
+    orderedList.insert(0);
+
+    CHECK(orderedList.to_string() == "2000 -> 21 -> 14 -> 10 -> 5 -> 2 -> 0");
+
+    Node* removedNode = orderedList.remove_at(2);
+
+    CHECK(removedNode->to_string() == "14");
+
 }

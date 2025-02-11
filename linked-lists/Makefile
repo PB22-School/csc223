@@ -6,7 +6,7 @@ build/%.o: src/%.cpp
 	@$(CC) -MM -MT $@ $< > build/$*.d
 	$(CC) -c -o $@ $< -std=$(STD)
 
-build/test_lists: build/LinkedList.o build/test_lists.o
+build/test_lists: build/LinkedList.o build/LinkedListVariants.o build/test_lists.o
 	$(CC) -o $@ $^ -std=$(STD)
 
 -include build/*.d
