@@ -40,7 +40,7 @@ int main() {
     bool isRunning = true;
 
     // in ms
-    const double drawTime = 1000;
+    const double drawTime = 50;
     double lastTime = getCurrentMs();
     double drawIter = 1000;
 
