@@ -24,32 +24,33 @@ private:
         AUXILARY,
         DESTINATION
     };
-
+    
     stack<int> stacks[3];       // Source, Aux, Destination
     vector<Move> moves;       // Stores the sequence of moves
-
+    
     // Private helper function to move a disk
     void moveDisk(Move move) {
         int disk = stacks[move.from].top();
         stacks[move.from].pop();
         stacks[move.to].push(disk);
-
+        
         moves.push_back(move);
     }
-
+    
     // Private recursive function to solve the Towers of Hanoi problem
     void hanoi(int n, int source, int auxiliary, int destination) {
         if (n == 1) {
             moveDisk(Move(source, destination));
             return;
         }
-
+        
         hanoi(n - 1, source, destination, auxiliary);
         moveDisk(Move(source, destination));
         hanoi(n - 1, auxiliary, source, destination);
     }
+    
+    public:
 
-public:
     // Constructor to initialize the source stack with disks
     TowersOfHanoi(int n) {
         initializeSourceStack(n);
@@ -67,7 +68,6 @@ public:
         hanoi(stacks[SOURCE].size(), SOURCE, AUXILARY, DESTINATION);
     }
 
-    // Get the move history (for testing purposes)
     vector<Move>* getMoves() {
         return &moves;
     }
