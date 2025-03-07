@@ -58,6 +58,10 @@ private:
 
     // Initialize the source stack with disks
     void initializeSourceStack(int n) {
+        for (int i = 0; i < 3; i++) {
+            stacks[i] = stack<int>(); // clear stacks
+        }
+
         for (int i = n; i >= 1; --i) {
             stacks[SOURCE].push(i);
         }
