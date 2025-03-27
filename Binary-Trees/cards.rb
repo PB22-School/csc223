@@ -27,30 +27,27 @@ end
 
 class Card
 
-    @@suit = Suit::NULL
-    @@rank = Rank::NULL
-
     @@ranks = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Jack", "Queen", "King", "Joker", "NULL"]
     @@suits = ["Hearts", "Spades", "Diamonds", "Clubs", "NULL"]
 
-    def initialize(sSuit, rRank)
-        @@suit = sSuit
-        @@rank = rRank
+    def initialize(suit = Suit::NULL, rank = Rank::NULL)
+        @suit = suit
+        @rank = rank
     end
 
     def print()
-        puts @@ranks[@@rank] + " of " + @@suits[@@suit]
+        puts @@ranks[@rank] + " of " + @@suits[@suit]
     end
         
 
 end
 
-@rng = Random.new
+rng = Random.new
 
 20.times do 
-    @suit = @rng.rand(Suit::NULL - 1)
-    @rank = @rng.rand(Rank::NULL - 1)
+    suit = rng.rand(Suit::NULL - 1)
+    rank = rng.rand(Rank::NULL - 1)
 
-    @card = Card.new(@suit, @rank)
-    @card.print
+    card = Card.new(suit, rank)
+    card.print
 end
