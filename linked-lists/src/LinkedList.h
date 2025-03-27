@@ -2,26 +2,28 @@
 #include <string>
 using namespace std;
 
+template <class T>
 struct Node {
-    int cargo;
+    T cargo;
     Node* next;
 
     // constructors
     Node();
-    Node(int);
-    Node(int, Node*);
+    Node(T);
+    Node(T, Node*);
 
     string to_string() const;
 };
 
+template <class T>
 class LinkedList {
-    Node* firstNode;
+    Node<T>* firstNode;
 
     public:
 
     LinkedList();
 
     string to_string() const;
-    void insert_in_front(int x);
+    void insert_in_front(T x);
     void remove_from_front();
 };
