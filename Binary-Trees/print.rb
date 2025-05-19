@@ -103,6 +103,6 @@ def pprint(n, index = false, delimiter = '-')
   print("\n" + print_arr.join("\n"))
 end
 
-tree = Node.new(18, Node.new(8, Node.new(2), Node.new(3)), Node.new(5, Node.new(4)))
+# tree = Node.new(18, Node.new(8, Node.new(2), Node.new(3)), Node.new(5, Node.new(4)))
 
-pprint(tree, false)
+# pprint(tree, false)
